@@ -1,16 +1,16 @@
 <html>
 <head>
     <title>IS Book</title>
-    <?php include "head.php"; ?>
+    <?php $this->load->view('head.php') ?>
 </head>
 <body>
     <!-- header -->
-    <?php include "header.php"; ?>
+    <?php $this->load->view('header.php') ?>
     <!-- ./header -->
 
     <!-- menu bar -->
     <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation" class="active"><a href="<?php echo base_url('index.php') ?>">Home</a></li>
         <li role="presentation"><a href="#">Insert Contact</a></li>
     </ul>
     <!-- ./menu bar -->
@@ -18,7 +18,7 @@
     <!-- search box -->
     <br/><br/>
     <div class="relative">
-    <form action="" method="get">
+    <form action="<?php echo base_url('index.php/co_contact/search')?>" method="post">
         <div class="col-md-2"></div>
         <div class="col-md-3">
             <span><b> Search By &nbsp;</b></span>
@@ -27,7 +27,7 @@
             <input type="radio" name="type" value="company"> company
         </div>
         <div class="input-group col-md-4">
-            <input type="text" name="key" class="form-control" value="" placeholder="Enter key" required autofocus>
+            <input type="text" name="key" class="form-control" placeholder="Enter key" required autofocus>
             <span class="input-group-btn">
                 <button class="btn btn-default" type="submit">Search!</button>
             </span>
@@ -35,6 +35,18 @@
     </form>
     </div>
     <!-- ./search box -->
+    <div class="col-md-5">
+        <a class="btn btn-default" href="<?php echo base_url('index.php/Welcome')?>" role="button">See All</a>
+    </div>
+    <div class="col-md-2">
+        <?php
+        if($key != FALSE){
+        echo $key.' '.count($data) ?> results
+        <?php
+        }
+        ?>
+    </div>
+    <div class="col-md-5"></div>
     <!-- contact list -->
     <br/><br/>
     <div class="relative contact_list">
@@ -45,64 +57,39 @@
                 <th>Company</th>
                 <th>Job</th>
                 <th>Rate</th>
+                <th>View</th>
                 <th>edit</th>
             </tr>
+            <?php 
+            $i = 0;
+            foreach ($data as $row) {
+              $i = $i+1;
+            ?>
             <tr>
-                <td>1</td>
-                <td><a href="#">Sutthida Chonpanichakul</a></td>
-                <td>SIT KMUTT</td>
-                <td>Student</td>
+                <td><?php echo $i ?></td>
+                <td><?php echo $row->first_name.' '.$row->last_name; ?></td>
+                <td><?php echo $row->company; ?></td>
+                <td><?php echo $row->job; ?></td>
                 <td>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
+                    <span>5</span>
                 </td>
-                <td><span class="glyphicon glyphicon-pencil"></span></td>
+                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Sutthida Chonpanichakul</td>
-                <td>SIT KMUTT</td>
-                <td>Student</td>
-                <td>
-                    <span class="glyphicon glyphicon-star"></span>
-                </td>
-                <td><span class="glyphicon glyphicon-pencil"></span></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Sutthida Chonpanichakul</td>
-                <td>SIT KMUTT</td>
-                <td>Student</td>
-                <td>
-                    <span class="glyphicon glyphicon-star"></span>
-                </td>
-                <td><span class="glyphicon glyphicon-pencil"></span></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Sutthida Chonpanichakul</td>
-                <td>SIT KMUTT</td>
-                <td>Student</td>
-                <td>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span class="glyphicon glyphicon-star"></span>
-                </td>
-                <td><span class="glyphicon glyphicon-pencil"></span></td>
-            </tr>
+            <?php
+            }
+            ?>
         </table>
     </div>
     <!-- ./contact list -->
     <!-- pagination -->
     <br/><br/>
-    <nav>
+    <div>
         <ul class="pager">
             <li><a href="#">Previous</a></li>
             <li><a href="#">Next</a></li>
         </ul>
-    </nav>
+    </div>
     <!-- ./pagination -->
     <div class="col-md-8 footer"></div>
 </body>

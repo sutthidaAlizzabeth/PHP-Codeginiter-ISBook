@@ -20,6 +20,11 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('contact_view');
+		$this->load->model('mo_contact');
+        $result['data'] = $this->mo_contact->searchAll();
+        $result['key'] = FALSE;
+        $this->load->view('index', $result);
+        
+        
 	}
 }

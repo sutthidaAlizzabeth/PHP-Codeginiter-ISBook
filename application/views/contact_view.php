@@ -1,11 +1,11 @@
 <html>
 <head>
     <title>IS Book::Contact</title>
-    <?php include "head.php"; ?>
+    <?php $this->load->view('head.php') ?>
 </head>
 <body>
     <!-- header -->
-    <?php include "header.php"; ?>
+    <?php $this->load->view('header.php') ?>
     <!-- ./header -->
 
     <!-- menu bar -->
