@@ -10,76 +10,76 @@
 
     <!-- menu bar -->
     <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation" class="active"><a href="<?php echo base_url('index.php') ?>">Home</a></li>
         <li role="presentation"><a href="#">Insert Contact</a></li>
     </ul>
     <!-- ./menu bar -->
     
-    <!-- insert box -->
+    <!-- contact box -->
     <div id="insert">
         <form action="" method="post">
             <!-- line1 -->
             <div class="col-md-4 line">
                 <b>ชื่อจริง </b>
-                <span>สุทธิดา</span>
+                <span><?php echo $data->first_name ?></span>
             </div>
             <div class="col-md-4">
                 <b>นามสกุล</b>
-                <span>ชลพานิชกุล</span>
+                <span><?php echo $data->last_name ?></span>
             </div>
             <!-- line2 -->
             <div class="col-md-4 line gap">
                 <b>บริษัท</b>
-                <span>SIT KMUTT</span>
+                <span><?php echo $data->company ?></span>
             </div>
             <div class="col-md-4 gap">
                 <b>เว็บไซต์บริษัท</b>
-                <span>www.sit.kmutt.ac.th</span>
+                <span><?php echo $data->url_web ?></span>
             </div>
             <!-- line3 -->
             <div class="col-md-8 line gap">
                 <b>รายละเอียดงาน</b><br/>
-                <span>จิปาถะ</span>
+                <span><?php echo $data->job_description ?></span>
             </div>
             <!-- line4 -->
             <div class="col-md-4 line gap">
                 <b>ตำแหน่ง/หน้าที่</b>
-                <span>นักศึกษา</span>
+                <span><?php echo $data->job ?></span>
             </div>
             <div class="col-md-4 gap">
                 <b>E-mail</b>
-                <span>snr308@gmail.com</span>
+                <span><?php echo $data->email ?></span>
             </div>
             <!-- line5 -->
             <div class="col-md-4 line gap">
                 <b>เบอร์มือถือ</b>
-                <span>0823370854</span>
+                <span><?php echo $data->mobile ?></span>
             </div>
             <div class="col-md-4 gap">
                 <b>เบอร์โทรศัพท์</b>
-                <span></span>
+                <span><?php echo $data->telephone ?></span>
             </div>
             <!-- line6 -->
             <div class="col-md-4 line gap">
                 <b>Fax</b>
-                <span></span>
+                <span><?php echo $data->fax ?></span>
             </div>
             <div class="col-md-4 gap">
                 <b>รหัสไปรษณีย์</b>
-                <span>10140</span>
+                <span><?php echo $data->postcode ?></span>
             </div>
             <!-- line7 -->
             <div class="col-md-8 line gap">
                 <b>ที่อยู่</b><br/>
-                <span>พุทธบูชา กรุงเทพ</span>
+                <span><?php echo $data->address ?></span>
             </div>
             <!-- line8 -->
-            <a target="_blank" href="<?php echo base_url('assets/image/0.png') ?>">
-                <img class="col-md-6 line gap" src="<?php echo base_url('assets/image/0.png') ?>" alt="">
+            <a target="_blank" href="<?php echo base_url('assets/image/'.$data->url_namecard) ?>">
+                <img class="col-md-6 line gap" src="<?php echo base_url('assets/image/'.$data->url_namecard) ?>">
             </a>
         </form>
     </div>
-    <!-- ./contact list -->
+    <!-- ./contact box -->
     <!-- average rate -->
     <div class="col-md-8 line">
         <b>Rate </b>

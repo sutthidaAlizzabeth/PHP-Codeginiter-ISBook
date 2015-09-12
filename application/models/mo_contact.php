@@ -47,6 +47,14 @@ class mo_contact extends CI_Model{
 		return $result;
 	}
     
+    public function searchById($id)
+	{
+        $condition = array('id'=>$id);
+		$query = $this->db->get_where('contacts', $condition);
+		$result = $query->row();
+		return $result;
+	}
+    
     public function get_all_num_row(){
         return $this->db->count_all('contacts');
     }

@@ -28,4 +28,16 @@ class co_contact extends CI_Controller {
         $this->load->view('index', $result);
 	}
     
+    public function single_contact($id){
+        $this->load->model('mo_contact');
+        $result['data'] = $this->mo_contact->searchById($id);
+        $this->load->view('contact_view', $result);
+    }
+    
+    public function edit_contact($id){
+        $this->load->model('mo_contact');
+        $result['data'] = $this->mo_contact->searchById($id);
+        $this->load->view('contact_edit', $result);
+    }
+    
 }

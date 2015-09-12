@@ -63,7 +63,7 @@
             <?php 
             $i = 0;
             foreach ($data as $row) {
-              $i = $i+1;
+                $i = $i+1;
             ?>
             <tr>
                 <td><?php echo $i ?></td>
@@ -73,8 +73,12 @@
                 <td>
                     <span>5</span>
                 </td>
-                <td><a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td>
+                    <a target="_blank" href="<?php echo base_url('index.php/co_contact/single_contact/'.$row->id) ?>">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                </td>
+                <td><a target="_blank" href="<?php echo base_url('index.php/co_contact/edit_contact/'.$row->id) ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
             </tr>
             <?php
             }
