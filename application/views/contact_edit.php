@@ -17,7 +17,8 @@
     
     <!-- insert box -->
     <div id="insert">
-        <form action="" method="post">
+        <form action="<?php echo base_url('index.php/co_contact/update_contact'); ?>" method="post" accept-charset="utf-8">
+            <input type="hidden" name="id" value="<?php echo $data->id ?>">
             <!-- line1 -->
             <div class="col-md-4 line">
                 <b>ชื่อจริง</b>
@@ -75,18 +76,21 @@
             </div>
             <!-- line8 -->
             <div class="col-md-8 line gap">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-            </div>
-            <!-- line9 -->
-            <div class="col-md-8 line gap">
                 <input type="submit" class="btn btn-success" style="float:right;">
             </div>
-            <!-- line10 -->
-            <a target="_blank" href="<?php echo base_url('assets/image/'.$data->url_namecard) ?>">
+        </form>
+        <div>
+            <div class="col-md-8 line gap">
+                <hr/>
+            </div>
+            <div class="col-md-8 line gap">
+                <label for="url_namecard">File input</label>
+                <input type="file" id="url_namecard">
+            </div>
+            <a target="_blank" href="<?php echo base_url('assets/image/'.$data->url_namecard) ?>" >
                 <img class="col-md-4 line gap" src="<?php echo base_url('assets/image/'.$data->url_namecard) ?>">
             </a>
-        </form>
+        </div>
     </div>
     <!-- ./contact list -->
     <div class="col-md-8 footer"></div>

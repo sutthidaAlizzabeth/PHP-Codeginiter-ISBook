@@ -58,6 +58,11 @@ class mo_contact extends CI_Model{
     public function get_all_num_row(){
         return $this->db->count_all('contacts');
     }
+    
+    public function update($id, $first_name,$last_name,$job,$job_description,$company,$url,$address,$postcode,$telephone,$mobile,$fax,$email){
+		$sql = 'UPDATE contacts SET first_name = "'.$first_name.'", last_name = "'.$last_name.'", company = "'.$company.'", address = "'.$address.'", postcode = "'.$postcode.'", telephone = "'.$telephone.'", mobile = "'.$mobile.'", fax = "'.$fax.'", email = "'.$email.'", url_web = "'.$url.'", job = "'.$job.'", job_description = "'.$job_description.'" WHERE id = "'.$id.'";';
+		$this->db->query($sql);
+	}
 
 }
  ?>
