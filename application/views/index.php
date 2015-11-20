@@ -8,13 +8,6 @@
     <?php $this->load->view('header.php') ?>
     <!-- ./header -->
 
-    <!-- menu bar -->
-    <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" class="active"><a href="<?php echo base_url('index.php') ?>">Home</a></li>
-        <li role="presentation"><a href="#">Insert Contact</a></li>
-    </ul>
-    <!-- ./menu bar -->
-    
     <!-- search box -->
     <br/><br/>
     <div class="relative">

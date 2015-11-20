@@ -2,6 +2,12 @@
 header{
     padding-bottom: 8%;
 }
+a:hover{
+    text-decoration: none;
+}
+a:active{
+    text-decoration: none;
+}
 
 
 #insert{
@@ -19,6 +25,9 @@ header{
 .contact_list{
     padding-left: 1%;
     padding-left: 1%;
+}
+.edit-tab-menu {
+	margin-left: 43%;
 }
 .footer{
     height: 20%;
@@ -48,6 +57,11 @@ header{
     padding-top: 2%;
     padding-bottom: 1;
     padding-left: 10%;
+}
+.mainMenu{
+    float: right;
+    margin-right: 2%;
+    margin-top: 5%;
 }
 .menu{
     background-color: #ADD8E6;

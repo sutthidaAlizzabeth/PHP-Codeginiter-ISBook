@@ -8,22 +8,20 @@
     <?php $this->load->view('header.php') ?>
     <!-- ./header -->
 
-    <!-- menu bar -->
-    <ul class="nav nav-tabs nav-justified">
-        <li role="presentation"><a href="#">Home</a></li>
-        <li role="presentation" class="active"><a href="#">Insert Contact</a></li>
-    </ul>
-    <!-- ./menu bar -->
     
     <!-- insert box -->
     <div id="insert">
-        <form action="" method="post">
-            <!-- line1 -->
+        <form action="<?php echo base_url('index.php/co_contact/insert') ?>" method="post" enctype="multipart/form-data">
             <div class="col-md-4 line">
+                <b>1. เพิ่มข้อมูล</b>
+            </div>
+            <br/> <br/>
+            <!-- line1 -->
+            <div class="col-md-4 line gap">
                 <b>ชื่อจริง</b>
                 <input class="input" type="text" name="first_name">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 gap">
                 <b>นามสกุล</b>
                 <input class="input" type="text" name="last_name">
             </div>
@@ -74,11 +72,7 @@
                 <textarea class="input" name="address" rows="4"></textarea>
             </div>
             <!-- line8 -->
-            <div class="col-md-4 line gap">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-            </div>
-            <div class="col-md-4 gap">
+            <div class="col-md-8 line gap">
                 <input type="submit" class="btn btn-success" style="float:right;">
             </div>
         </form>
