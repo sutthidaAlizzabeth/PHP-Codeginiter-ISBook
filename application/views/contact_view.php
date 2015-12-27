@@ -109,32 +109,35 @@
     </form>
     <!-- ./feedback box -->
     
-    <!-- show comment -->
-    <?php 
-    if($feedback != null){
-        foreach ($feedback as $comment){
-    ?>
-    
-    <div class="col-md-4 line gap">
-        <b>วันที่:</b>
-        <span><?php echo $comment->date_at ?> </span>
-        <b>ผู้ลงข้อมูล: </b>
-        <span><?php echo $comment->user ?></span>
-    </div>
-    <div class="col-md-4">
-        <b>Rate </b>
-        <span><?php echo $comment->level; ?></span>
-    </div>
-    <div class="col-md-6 line gap">
-        <span><?php echo $comment->feedback_comment ?></span>
-        <hr/>
-    </div>
-    
-    <?php
-        }
-    }
-    ?>
-    <!-- ./show comment -->
+     <!-- show comment --> 
+        <?php
+        if($feedback != null){ 
+            foreach ($feedback as $comment){ 
+        ?>
+        <div class="col-md-4 line gap">
+            <b>วันที่:</b> 
+            <span><?php echo $comment->date_at ?> </span>
+            <b>ผู้ลงข้อมูล: </b>
+            <span><?php echo $comment->user ?></span>
+        </div>
+        <div class="col-md-4"> 
+            <b>Rate </b> 
+            <?php
+                $rate = $comment->level;
+                for ($x = 1; $x <= $rate; $x++) {
+                    echo '<span class="glyphicon glyphicon-star"></span>'; 
+                }
+            ?>
+        </div>
+        <div class="col-md-6 line gap">
+            <span><?php echo $comment->feedback_comment ?></span>
+            <hr/>
+            </div>
+        <?php 
+        } } 
+        ?>
+    <!-- ./show comment --> 
+
     <div class="col-md-8 footer"></div>
 </body>
 </html>
