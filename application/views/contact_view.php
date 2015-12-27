@@ -82,60 +82,59 @@
         <hr/>
     </div>
     <!-- ./average rate -->
+    
     <!-- feedback box -->
-    <div class="col-md-8 line">
-        <div class="gap">
-            <b>ความพึงพอใจ (จำเป็นต้องเลือก)</b>
-            <input type="radio" name="level" value="5"> มากที่สุด &nbsp;
-            <input type="radio" name="level" value="4"> มาก &nbsp;
-            <input type="radio" name="level" value="3"> ดี &nbsp;
-            <input type="radio" name="level" value="2"> พอใจ &nbsp;
-            <input type="radio" name="level" value="1"> แย่ &nbsp;
+    <form method="post" action="<?php echo base_url('index.php/co_feedback/insert') ?>">
+        <input type="hidden" name="id" value="<?php echo $data->id ?>">
+        <input type="hidden" name="user" value="sutthida">
+        <div class="col-md-8 line">
+            <div class="gap">
+                <b>ความพึงพอใจ: </b>
+                <input type="radio" name="level" value="5"> มากที่สุด &nbsp;
+                <input type="radio" name="level" value="4"> มาก &nbsp;
+                <input type="radio" name="level" value="3"> ดี &nbsp;
+                <input type="radio" name="level" value="2"> พอใจ &nbsp;
+                <input type="radio" name="level" value="1"> แย่ &nbsp;
+            </div>
+            <br/>
+            <div class="gap">
+                <b>Feedback (ถ้ามี)</b>
+                <textarea class="input" name="feedback" rows="4"></textarea>
+            </div>
+            <div class="line gap">
+                <input type="submit" class="btn btn-success" style="float:right;">
+            </div>
+            <br/>
         </div>
-        <br/>
-        <div class="gap">
-            <b>Feedback (ถ้ามี)</b>
-            <textarea class="input" name="feedback" rows="4"></textarea>
-        </div>
-        <div class="line gap">
-            <input type="submit" class="btn btn-success" style="float:right;">
-        </div>
-        <br/>
-    </div>
+    </form>
     <!-- ./feedback box -->
-    <!-- show feedback -->
+    
+    <!-- show comment -->
+    <?php 
+    if($feedback != null){
+        foreach ($feedback as $comment){
+    ?>
+    
     <div class="col-md-4 line gap">
         <b>วันที่:</b>
-        <span>Nov 04 2014 11:45 PM </span>
+        <span><?php echo $comment->date_at ?> </span>
         <b>ผู้ลงข้อมูล: </b>
-        <span>สุทธิดา</span>
+        <span><?php echo $comment->user ?></span>
     </div>
     <div class="col-md-4">
         <b>Rate </b>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
+        <span><?php echo $comment->level; ?></span>
     </div>
     <div class="col-md-6 line gap">
-        <span>ทำงานดีมากๆ</span>
+        <span><?php echo $comment->feedback_comment ?></span>
         <hr/>
     </div>
-
-    <div class="col-md-4 line gap">
-        <b>วันที่:</b>
-        <span>Nov 04 2014 11:45 PM </span>
-        <b>ผู้ลงข้อมูล: </b>
-        <span>สุทธิดา</span>
-    </div>
-    <div class="col-md-4">
-        <b>Rate </b>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-    </div>
-    <div class="col-md-6 line gap">
-        <span>ทำงานดีมากๆ</span> 
-        <hr/>
-    </div>
-    <!-- ./show feedback -->
+    
+    <?php
+        }
+    }
+    ?>
+    <!-- ./show comment -->
     <div class="col-md-8 footer"></div>
 </body>
 </html>

@@ -36,6 +36,9 @@ class co_contact extends CI_Controller {
     public function single_contact($id){
         $this->load->model('mo_contact');
         $result['data'] = $this->mo_contact->searchById($id);
+        
+        $this->load->model('mo_feedback');
+        $result['feedback'] = $this->mo_feedback->showFeedback($id);
         $this->load->view('contact_view', $result);
     }
     

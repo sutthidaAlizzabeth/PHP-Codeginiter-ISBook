@@ -73,7 +73,7 @@
             </div>
             <!-- line8 -->
             <div class="col-md-8 line gap">
-                <input type="submit" class="btn btn-success" style="float:right;">
+                <input value="Next" type="submit" class="btn btn-success" style="float:right;">
             </div>
         </form>
     </div>
