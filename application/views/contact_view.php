@@ -73,11 +73,19 @@
         </form>
     </div>
     <!-- ./contact box -->
+    
     <!-- average rate -->
     <div class="col-md-8 line">
         <b>Rate </b>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
+        <span><?php
+                $avgRate = $avgRate->level;
+                if($avgRate == null){
+                    $avgRate = 0;
+                }
+                for ($x = 1; $x <= $avgRate; $x++) {
+                    echo '<span class="glyphicon glyphicon-star"></span>'; 
+                }
+            ?></span>
         <br/>
         <hr/>
     </div>

@@ -39,6 +39,7 @@ class co_contact extends CI_Controller {
         
         $this->load->model('mo_feedback');
         $result['feedback'] = $this->mo_feedback->showFeedback($id);
+        $result['avgRate'] = $this->mo_feedback->avgRate($id);
         $this->load->view('contact_view', $result);
     }
     
